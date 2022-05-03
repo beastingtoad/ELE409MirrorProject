@@ -1,14 +1,12 @@
 import multiprocessing
-
+import ScreenSelector
 '''
 This file should be set to start up on powering of device
 '''
 
 def setUpScreenselector():
-    """
-    put code to call and set up screen
-    """
-    pass
+    root=ScreenSelector.DisplayScreen()
+    root.mainloop()
 
 def setUpServer():
     """
