@@ -3,4 +3,4 @@
 #Ignore .idea files
 .idea/
 #Ignore cache
-.Server/__pycache__/
+Server/__pycache__/
