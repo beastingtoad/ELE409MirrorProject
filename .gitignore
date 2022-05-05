@@ -4,4 +4,4 @@
 /.idea/
 #Ignore .idea files
 .idea/
-
+Server/venv/
