@@ -1,7 +1,6 @@
 
-/.idea/dbnavigator.xml
 .DS_Store
-
 #Ignore .idea files
 .idea/
-
+#Ignore cache
+Server/__pycache__/
