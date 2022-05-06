@@ -5,3 +5,4 @@
 #Ignore .idea files
 .idea/
 Server/venv/
+Server/app/database.db
