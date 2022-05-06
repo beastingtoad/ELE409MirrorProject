@@ -7,6 +7,7 @@ class DisplayScreen(tk.Tk):
     this class sets up a full screen window with 6 screens to select ftom using tk
     """
 
+
     def __init__(self):
         """
         sets up the screen with a fullscreen tk interface with 6 buttons and a lable on the top
