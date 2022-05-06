@@ -1,12 +1,11 @@
-from run import get_db_connection
 from flask import Flask, request, redirect, url_for, flash, render_template
 from werkzeug.security import generate_password_hash
+from flask import Blueprint
 
+auth = Blueprint('auth', __name__)
 
-app = Flask(__name__)
-
-
-@app.route('/register', methods=['GET', 'POST'])
+"""
+@auth.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
         username = request.form['username']
@@ -33,3 +32,4 @@ def register():
         flash(error)
 
     return render_template('auth/register.html')
+"""
