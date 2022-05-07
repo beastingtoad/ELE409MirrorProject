@@ -7,4 +7,5 @@
 .idea/
 Server/venv/
 Server/app/database.db
+Server/app/__pycache__/
 Server/__pycache__/
