@@ -1,20 +1,16 @@
 const router = require('express').Router();
+const {getPreferences, 
+        setPreferences,
+        updatePreferences,
+        deletePreferences} = require('../backend/controllers/preference_controller')
 
 
-router.route('/').get((req, res) => {
-    res.status(200).json({ message: 'Preferences'});
-});
+router.route('/').get(getPreferences)
 
-router.route('/').post((req, res) => {
-    res.status(200).json({ message: 'Set preferences'});
-});
+router.route('/').post(setPreferences)
 
-router.route('/:id').put((req, res) => {
-    res.status(200).json({ message: `Update preference ${req.params.id}`});
-});
+router.route('/:id').put(updatePreferences)
 
-router.route('/:id').delete((req, res) => {
-    res.status(200).json({ message: `Delete preference ${req.params.id}`});
-});
+router.route('/:id').delete(deletePreferences)
 
 module.exports = router;
