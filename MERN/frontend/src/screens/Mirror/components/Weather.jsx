@@ -34,7 +34,7 @@ const Weather = () => {
       errorMessage={errorMessage}
       data={data}
       lang="en"
-      locationLabel="Munich"
+      locationLabel="URI"
       unitsLabels={{ temperature: 'C', windSpeed: 'Km/h' }}
       showForecast
     />
