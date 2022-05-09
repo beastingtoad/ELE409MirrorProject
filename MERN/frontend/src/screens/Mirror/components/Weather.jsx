@@ -1,65 +1,43 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import debounce from 'lodash-es/debounce';
+import ReactWeather, { useOpenWeather } from 'react-open-weather';
 
-import ForecastCard from './forecast-card';
-import WeatherCard from './weather-card';
-
-
-const searchTimeoutInMs = 500;
-
-export default function Weather() {
-  const [location, setLocation] = React.useState('Eldoret');
-  const [debouncedSearchTerm, setDebouncedSearchTerm] = React.useState('');
-  const [isSearching, setIsSearching] = React.useState(false);
-  const [units, setUnits] = React.useState('metric');
-
-  const debounceSearch = React.useMemo(
-    () =>
-      debounce((searchTerm) => {
-        setDebouncedSearchTerm(searchTerm);
-      }, searchTimeoutInMs),
-    [],
-  );
-
-  const handleLocationChange = (event) => {
-    const query = event.target.value.trim();
-    if (query) {
-      setIsSearching(true);
-    }
-    debounceSearch(query);
-  };
-
-  const handleUnitsChange = (newUnits) => {
-    setUnits(newUnits);
-  };
-
-  React.useEffect(() => {
-    if (debouncedSearchTerm) {
-      setLocation(debouncedSearchTerm);
-      setIsSearching(false);
-    }
-  }, [debouncedSearchTerm]);
-
+const Weather = () => {
+  const { data, isLoading, errorMessage } = useOpenWeather({
+    key: 'b77ce27445f43561b68d75e5bfed52f5',
+    lat: '41.485070',
+    lon: '-71.529790',
+    lang: 'en',
+    unit: 'metric', // values are (metric, standard, imperial)
+  });
+  const customStyles = {
+	fontFamily:  'Helvetica, sans-serif',
+	gradientStart:  '#000000',
+	gradientMid:  '#00000f',
+	gradientEnd:  '#0f000f',
+	locationFontColor:  '#FFF',
+	todayTempFontColor:  '#FFF',
+	todayDateFontColor:  '#B5DEF4',
+	todayRangeFontColor:  '#B5DEF4',
+	todayDescFontColor:  '#B5DEF4',
+	todayInfoFontColor:  '#B5DEF4',
+	todayIconColor:  '#FFF',
+	forecastBackgroundColor:  '#000',
+	forecastSeparatorColor:  '#000',
+	forecastDateColor:  '#777',
+	forecastDescColor:  '#777',
+	forecastRangeColor:  '#777',
+	forecastIconColor:  '#AAA'
+};
   return (
-    <div className="min-h-screen dark:bg-black">
-      <Router>
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <main>
-                <div className="mx-auto w-5/6 md:w-full xl:max-w-6xl 2xl:max-w-7xl">
-                  <div className="divide-light-blue-400 m-auto mt-4 h-auto w-full divide-y-2 overflow-hidden rounded-lg shadow-lg md:w-3/5 lg:w-1/2">
-                    <WeatherCard location={location} units={units} />
-                    <ForecastCard location={location} units={units} />
-                  </div>
-                </div>
-              </main>
-            }
-          />
-        </Routes>
-      </Router>
-    </div>
+    <ReactWeather
+      theme={customStyles}
+      isLoading={isLoading}
+      errorMessage={errorMessage}
+      data={data}
+      lang="en"
+      locationLabel="Munich"
+      unitsLabels={{ temperature: 'C', windSpeed: 'Km/h' }}
+      showForecast
+    />
   );
-}
+};
+export default Weather;

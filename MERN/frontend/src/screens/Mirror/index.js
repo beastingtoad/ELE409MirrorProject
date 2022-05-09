@@ -1,6 +1,9 @@
 import React from "react";
 import Clock from "./components/Clock";
-import Weather from"./components/Weather";
+import Edit from "./components/edit"
+import Create from "./components/creat"
+import RecordList from "./components/recordList"
+import Weather from "./components/Weather"
 import './Mirror.css';
 
 const Mirror = () => {
