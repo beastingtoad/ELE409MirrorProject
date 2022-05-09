@@ -1,24 +1,39 @@
 import logo from './logo.svg';
 import './App.css';
+import React, {useState, useEffect} from 'react';
+import {
+  Routes,
+  Route } from "react-router-dom";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+} from "chart.js";
+import {
+  HomeScreen,
+  MirrorScreen
+} from "./screens";
+
 
 function App() {
+  ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
+
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div style={{width: "100%"}}>
+        <Routes>
+          {/* If the current URL is /about, this route is rendered
+            while the rest are ignored */}
+          <Route path="/Mirror" element={<MirrorScreen />}/>
+          <Route path="/" element={<HomeScreen />}/>
+        </Routes>
+      </div>
   );
 }
 
