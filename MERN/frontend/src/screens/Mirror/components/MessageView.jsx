@@ -8,7 +8,6 @@ export default function Messages() {
     const fetchMesg = async() =>{
         const {data} = await axios.get('messages/');
         setMsg(data);
-        console.log(data);
     }
 
     // This method fetches the records from the database.
