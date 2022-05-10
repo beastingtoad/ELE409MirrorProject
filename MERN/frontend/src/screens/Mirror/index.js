@@ -1,7 +1,7 @@
 import React from "react";
 import Clock from "./components/Clock";
-import MessagesList from "./components/recordList"
 import Weather from "./components/Weather"
+import MessageView from "./components/MessageView";
 import './Mirror.css';
 
 const Mirror = () => {
@@ -11,7 +11,7 @@ const Mirror = () => {
               <div style={{ Align: "left"}}>
                   <Clock />
                   <Weather />
-                  <MessagesList />
+                  <MessageView />
               </div>
           </header>
       </>
