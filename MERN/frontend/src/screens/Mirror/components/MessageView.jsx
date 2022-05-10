@@ -23,7 +23,7 @@ export default function MessagesList() {
             {msg &&
                 msg
                     .map((msg) => (
-                        <Card style={{ margin: 10 }} key={msg._id}>{msg.name} </Card>))}
+                        <Card style={{ margin: 10 }} key={msg._id}>{msg.text} </Card>))}
         </div>
     );
 }
