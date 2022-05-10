@@ -3,7 +3,7 @@ import axios from "axios";
 import {Card} from "@mui/material";
 
 
-export default function MessagesList() {
+export default function Messages() {
     const [msg, setMsg] = useState([])
 
     const fetchMesg = async() =>{
@@ -23,7 +23,7 @@ export default function MessagesList() {
             {msg &&
                 msg
                     .map((msg) => (
-                        <Card style={{ margin: 10 }} key={msg._id}>{msg.text} </Card>))}
+                        <h1 style={{color: "#FFF",backgroundColor: "#000", margin: 10 }} key={msg._id}>{msg.text} </h1>))}
         </div>
     );
 }

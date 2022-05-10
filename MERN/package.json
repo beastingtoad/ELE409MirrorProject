@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "concurrently": "^7.1.0"
+  },
+  "scripts": {
+    "dev": "concurrently --kill-others \"npm start --prefix backend/\" \"npm start --prefix frontend/\" "
+  }
+}
