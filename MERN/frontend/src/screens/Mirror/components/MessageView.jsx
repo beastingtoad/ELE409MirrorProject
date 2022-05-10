@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import {Card} from "@mui/material";
 
 
 export default function Messages() {
@@ -15,6 +14,13 @@ export default function Messages() {
     // This method fetches the records from the database.
     useEffect(() => {
         fetchMesg();
+
+        const interval=setInterval(()=>{
+            fetchMesg()
+        },10000)
+        return()=>clearInterval(interval)
+
+
     },[]);
 
     // This following section will display the Message.
