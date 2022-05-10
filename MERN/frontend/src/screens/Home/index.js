@@ -1,11 +1,11 @@
 import React, {useState, useEffect} from 'react';
-import {Button,Input} from '@mui/material'
+import Edit from "./components/edit";
 import './App.css';
 function Home(){
   return (
     <>
       <header className="App-header">
-
+        <Edit />
       </header>
     </>
   );
