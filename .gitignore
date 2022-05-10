@@ -8,3 +8,5 @@
 Server/venv/
 Server/app/database.db
 Server/__pycache__/
+MERN/node_modules
+Server/app/__pycache__/
