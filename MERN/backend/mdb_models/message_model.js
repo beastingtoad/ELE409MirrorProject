@@ -11,5 +11,6 @@ const messageSchema = mongoose.Schema({
         }
 );
 
+
 // name of mongo db models:
-module.exports = mongoose.model('Preference', preferenceSchema);
+module.exports = mongoose.model('Message', messageSchema);
